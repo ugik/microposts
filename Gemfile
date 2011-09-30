@@ -3,6 +3,14 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0'
 gem 'sqlite3'
 gem 'gravatar_image_tag', '1.0.0.pre2'
+gem 'will_paginate', '3.0.pre2'
+
+
+gem 'jquery-rails'
+
+group :development do
+  gem 'faker', '0.3.1'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -11,8 +19,6 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
 end
-
-gem 'jquery-rails'
 
 group :production do
   # gems specifically for Heroku go here
