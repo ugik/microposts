@@ -5,14 +5,25 @@ describe UsersController do
   render_views
 
 #----------------------------------------------
-  describe "GET 'index'" do
+  describe "GET 'index/show'" do
 
     describe "for non-signed-in users" do
+
+      before(:each) do
+        @user = Factory(:user)
+      end
+
       it "should deny access" do
         get :index
         response.should redirect_to(root_path)
         #flash[:notice].should =~ /sign in/i
       end
+      
+      it "should not show user" do
+        get :show, :id => @user
+        response.should redirect_to(signin_path)
+      end
+
     end
   end
 
