@@ -29,15 +29,11 @@ describe UsersController do
 #----------------------------------------------
   describe "GET 'new'" do
 
-    it "should be successful" do
+    it "should not be successful without admin" do
       get 'new'
-      response.should be_success
+      response.should_not be_success
     end
     
-    it "should have the right title" do
-      get 'new'
-      response.should have_selector("title", :content => "Sign up")
-    end
   end
 
 #----------------------------------------------  
@@ -86,7 +82,7 @@ describe UsersController do
       
       it "should have a welcome message" do
         post :create, :user => @attr
-        flash[:success].should =~ /welcome to/i
+        flash[:success].should =~ /user created/i
       end
 
       it "should sign the user in" do
@@ -316,6 +312,11 @@ describe UsersController do
         response.should be_success     
       end      
 
+      it "NEW should have the right title" do
+        get 'new'
+        response.should have_selector("title", :content => "Create User")
+      end
+    
       describe "should be able to see index" do
         before(:each) do
           second = Factory(:user, :name => "Bob", :email => "another@example.com")

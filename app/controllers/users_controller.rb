@@ -14,14 +14,14 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @title = "Sign up"
+    @title = "Create User"
   end
 
   def create
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Keas Admin Console"
+      flash[:success] = "New user created"
       redirect_to @user
     else
       @title = "Sign up"
