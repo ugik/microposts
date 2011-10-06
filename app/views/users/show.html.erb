@@ -1,10 +1,15 @@
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
-      <h1>
+      <h2>
         <%= gravatar_for @user %>
         <%= @user.name %>
-      </h1>
+      </h2>
+      <h4>
+  Company:<%= @user.company_name %>
+  <br>
+  League id:<%= @user.league_id %>        
+      </h4>
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.name %><br />

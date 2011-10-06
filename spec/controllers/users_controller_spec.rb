@@ -33,7 +33,6 @@ describe UsersController do
       get 'new'
       response.should_not be_success
     end
-    
   end
 
 #----------------------------------------------  
@@ -53,7 +52,7 @@ describe UsersController do
 
       it "should have the right title" do
         post :create, :user => @attr
-        response.should have_selector("title", :content => "Sign up")
+        response.should have_selector("title", :content => "Create User")
       end
 
       it "should render the 'new' page" do
@@ -151,7 +150,6 @@ describe UsersController do
                                          :content => "change")
     end
   end
-
 
 #----------------------------------------------
   describe "PUT 'update'" do
@@ -254,7 +252,6 @@ describe UsersController do
     end
   end
   
-
 #----------------------------------------------
   describe "Admin user" do
 

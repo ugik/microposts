@@ -2,7 +2,9 @@
   <a href="<%= user_path(current_user) %>">
     <%= gravatar_for current_user, :width => "30" %>
     <span class="user_name">
-      <%= current_user.name %>
+      <%= current_user.name %>,
+      Company:<%= current_user.company_name %>, 
+      League id:<%= current_user.league_id %>
     </span>
   </a>
 </div>

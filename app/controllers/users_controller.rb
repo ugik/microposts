@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       flash[:success] = "New user created"
       redirect_to @user
     else
-      @title = "Sign up"
+      @title = "Create User"
       render 'new'
     end
   end
