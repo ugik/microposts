@@ -116,12 +116,12 @@ describe UsersController do
 
     it "should include the user's name" do
       get :show, :id => @user
-      response.should have_selector("h1", :content => @user.name)
+      response.should have_selector("h2", :content => @user.name)
     end
 
     it "should have a profile image" do
       get :show, :id => @user
-      response.should have_selector("h1>img", :class => "gravatar")
+      response.should have_selector("h2>img", :class => "gravatar")
     end
   end
 
