@@ -1,5 +1,5 @@
 require 'digest'
-class User < ActiveRecord::Base
+class Admin < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :company_name, :league_id
 
@@ -21,14 +21,14 @@ class User < ActiveRecord::Base
   end
 
   def self.authenticate(email, submitted_password)
-    user = find_by_email(email)
-    return nil  if user.nil?
-    return user if user.has_password?(submitted_password)
+    admin = find_by_email(email)
+    return nil  if admin.nil?
+    return admin if admin.has_password?(submitted_password)
   end
 
   def self.authenticate_with_salt(id, cookie_salt)
-    user = find_by_id(id)
-    (user && user.salt == cookie_salt) ? user : nil
+    admin = find_by_id(id)
+    (admin && admin.salt == cookie_salt) ? admin : nil
   end
 
   private

@@ -12,19 +12,19 @@
 
 ActiveRecord::Schema.define(:version => 20111006192207) do
 
-  create_table "users", :force => true do |t|
+  create_table "admins", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
-    t.boolean  "admin",              :default => false
+    t.boolean  "administrator",              :default => false
     t.string   "company_name"
     t.integer  "league_id"
     t.datetime "last_login"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
 
 end

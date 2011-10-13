@@ -1,5 +1,5 @@
-class AddSaltToUsers < ActiveRecord::Migration
+class AddSaltToAdmins < ActiveRecord::Migration
   def change
-    add_column :users, :salt, :string
+    add_column :admins, :salt, :string
   end
 end

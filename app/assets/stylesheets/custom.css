@@ -113,7 +113,7 @@ footer nav {
   float: none;
 }
 
-/* User show page */
+/* Admin show page */
 table.profile {
   width: 100%;
   margin-bottom: 0;
@@ -183,12 +183,12 @@ div.field, div.actions {
   list-style: square;
 }
 
-/* users list */
+/* admins list */
 
-ul.users {
+ul.admins {
   margin-top: 1em;
 }
 
-.users li {
+.admins li {
   list-style: none;
 }

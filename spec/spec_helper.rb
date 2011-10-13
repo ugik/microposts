@@ -25,8 +25,8 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
   
-  def test_sign_in(user)
-    controller.sign_in(user)
+  def test_sign_in(admin)
+    controller.sign_in(admin)
   end
 
 end

@@ -1,0 +1,13 @@
+<h3><%= link_to "Create a New Admin", "signup" %></h3>
+
+List of admins:
+<%= will_paginate %>
+
+<ul class="admins">
+  <% @admins.each do |admin| %>
+    <%= render admin %>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+

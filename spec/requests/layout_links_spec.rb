@@ -33,10 +33,10 @@ describe "LayoutLinks" do
   describe "when signed in" do
 
     before(:each) do
-      @user = Factory(:user)
+      @admin = Factory(:admin)
       visit signin_path
-      fill_in :email,    :with => @user.email
-      fill_in :password, :with => @user.password
+      fill_in :email,    :with => @admin.email
+      fill_in :password, :with => @admin.password
       click_button
     end
 
@@ -48,7 +48,7 @@ describe "LayoutLinks" do
 
     it "should have a profile link" do
       visit root_path
-      response.should have_selector("a", :href => user_path(@user),
+      response.should have_selector("a", :href => admin_path(@admin),
                                          :content => "Profile")
     end
   end

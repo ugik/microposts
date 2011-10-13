@@ -1,8 +1,6 @@
 require 'test_helper'
 
-class UsersTest < ActionDispatch::IntegrationTest
-  fixtures :all
-
+class AdminTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

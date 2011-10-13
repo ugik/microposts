@@ -1,0 +1,11 @@
+<li>
+  <%= gravatar_for admin, :size => 30 %>
+  <%= link_to admin.name, admin %>,
+  Company:<%= admin.company_name %>,
+  League id:<%= admin.league_id %>
+  <% if current_admin.administrator? %>
+  <%= button_to "delete", admin, :method=>:delete, :class=>:destroy, :confirm=>"Are you sure?" %>
+<br>
+  <% end %>
+</li>
+
