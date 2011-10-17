@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #cff;
+  background: #E6EFC2; 
 }
 
 header {
@@ -114,6 +114,7 @@ footer nav {
 }
 
 /* Admin show page */
+
 table.profile {
   width: 100%;
   margin-bottom: 0;
@@ -125,7 +126,7 @@ td.main {
 }
 
 td.sidebar {
-  width: 30%;
+  width: 45%;
   padding: 1em;
   vertical-align: top;
   background: #ffc;

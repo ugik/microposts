@@ -17,5 +17,5 @@ module ApplicationHelper
   def pop
     image_tag("PowerOfPlay.jpg", :alt => "Console", :class => "round", :width => "250")
   end  
-  
+
 end

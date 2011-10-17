@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20111006192207) do
     t.boolean  "administrator",              :default => false
     t.string   "company_name"
     t.integer  "league_id"
+    t.string   "league_url"
     t.datetime "last_login"
   end
 

@@ -4,11 +4,14 @@
       <td class="sidebar round">
         <%= render 'shared/admin_info' %>
       </td>
+      <td> 
+      	<% if current_admin.league_url != nil %>
+      		<%= link_to league_logo, root_path %> </td>
+		<% end %>
     </tr>
   </table>
 <% else %>
   <h1>Admin Console</h1>
-
   <p>
     This is the home page for the
     <a href="http://play.keas.com/">Keas Administrative Console</a>
