@@ -1,7 +1,11 @@
 <div class="admin_info">
   <a href="<%= admin_path(current_admin) %>">
-    <%= gravatar_for current_admin, :width => "30" %>
-    <span class="admin_name">
+   	<% if current_admin.league_url != nil %>
+   		<%= link_to league_logo, root_path %>
+    <% else %>
+    	<small>(set league logo image URL in 'Settings')</small>
+    <% end %>
+     <span class="admin_name">
       </br>
       <%= current_admin.name %>
     </span>

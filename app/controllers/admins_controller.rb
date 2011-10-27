@@ -56,9 +56,7 @@ class AdminsController < ApplicationController
 
     if session[:cache] == nil     # setup cache in session
       cache = Hash.new
-      cache["admin.name"] = @admin.name
       cache["admin.id"] = @admin.id
-      
       session[:cache] = cache      
     end
   end

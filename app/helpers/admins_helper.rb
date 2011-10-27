@@ -7,7 +7,7 @@ module AdminsHelper
   end
 
   def league_logo
-    image_tag(current_admin.league_url, :alt => "Console", :class => "round", :width => "30")
+    image_tag(current_admin.league_url, :alt => "Console", :class => "round", :width => "100")
   end  
 
 end

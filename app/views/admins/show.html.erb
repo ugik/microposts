@@ -1,10 +1,11 @@
 <table class="profile" summary="Profile information">
   <tr>
     <td class="main">
-      <h2>
-        <%= gravatar_for @admin %>
-        <%= session[:cache]["admin.name"] %> 
-      </h2>
+      <h3>
+      	<%= link_to league_logo, root_path %></td>
+        
+        <!-- gravatar_for @admin %> -->
+      </h3>
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= @admin.name %><br />
