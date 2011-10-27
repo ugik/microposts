@@ -116,13 +116,9 @@ describe AdminsController do
 
     it "should include the admin's name" do
       get :show, :id => @admin
-      response.should have_selector("h2", :content => @admin.name)
+      response.should have_selector("h4", :content => @admin.name)
     end
 
-    it "should have a profile image" do
-      get :show, :id => @admin
-      response.should have_selector("h2>img", :class => "gravatar")
-    end
   end
 
 #----------------------------------------------  
