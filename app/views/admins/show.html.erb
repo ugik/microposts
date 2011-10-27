@@ -3,11 +3,11 @@
     <td class="main">
       <h3>
       	<%= link_to league_logo, root_path %></td>
-        <!-- gravatar_for @admin %> -->
       </h3>
     </td>
     <td class="sidebar round">
-      <strong>Name</strong> <h4><%= @admin.name %></h4><br />
+      <%= gravatar_for @admin %><br><br>
+      <h4><%= @admin.name %></h4>
       <%= @admin.company_name %><br />
       <strong>League ID</strong> <%= @admin.league_id %><br />
       <!--      <strong>URL</strong>  <%= link_to admin_path(@admin), @admin %> -->
