@@ -15,6 +15,7 @@ class Admin < ActiveRecord::Base
                        :length       => { :within => 6..40 }
 
   before_save :encrypt_password
+  cache = Hash.new
 
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -30,7 +31,7 @@ class Admin < ActiveRecord::Base
     admin = find_by_id(id)
     (admin && admin.salt == cookie_salt) ? admin : nil
   end
-
+  
   private
 
     def encrypt_password

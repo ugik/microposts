@@ -3,7 +3,7 @@
     <td class="main">
       <h2>
         <%= gravatar_for @admin %>
-        <%= @admin.name %>
+        <%= session[:cache]["admin.name"] %> 
       </h2>
     </td>
     <td class="sidebar round">

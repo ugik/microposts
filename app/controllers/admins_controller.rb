@@ -53,6 +53,14 @@ class AdminsController < ApplicationController
   def show
     @admin = Admin.find(params[:id])
     @title = @admin.name
+
+    if session[:cache] == nil     # setup cache in session
+      cache = Hash.new
+      cache["admin.name"] = @admin.name
+      cache["admin.id"] = @admin.id
+      
+      session[:cache] = cache      
+    end
   end
 
   def destroy
