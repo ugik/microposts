@@ -1,4 +1,5 @@
 <% cache('challenges_cache') do %>
+
 <tr>
   <td class="challenge">
     <span class="content"><%= challenge.name %></span>
@@ -35,7 +36,30 @@
 	<div id='pie-chart'></div>
 	<%= render_chart @chart, 'pie-chart' %>		
 	</td>
-	<td>View more graphs</td>
+	<td><%= link_to 'More Graphs', :controller => 'admins', :method => :get, :action => 'graphs' %>
+</td>
+</tr>
+<tr></tr>
+<tr>
+	<td></td><td>
+	<%  @data_table = GoogleVisualr::DataTable.new
+    challenge.load_challenge_users_table(challenge.id, @data_table) %>
+
+	<% option = { :width => 500, :height => 250, :title => 'Registrations' }
+	@chart = GoogleVisualr::Interactive::AreaChart.new(@data_table, option) %>
+	<div id='reg-chart'></div>
+	<%= render_chart(@chart, 'reg-chart') %>
+</tr>
+<tr></tr>
+<tr>
+	<td></td><td>
+	<%  @data_table = GoogleVisualr::DataTable.new
+    challenge.load_challenge_points_table(challenge.id, @data_table) %>
+
+	<% option = { :width => 500, :height => 250, :title => 'Points Activity' }
+	@chart = GoogleVisualr::Interactive::AreaChart.new(@data_table, option) %>
+	<div id='pts-chart'></div>
+	<%= render_chart(@chart, 'pts-chart') %>
 </tr>
 
 <% end %>

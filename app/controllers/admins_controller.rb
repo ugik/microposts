@@ -9,6 +9,10 @@ class AdminsController < ApplicationController
 
   end
 
+  def graphs
+    redirect_to :action => 'view_graphs'
+  end
+
   def edit
     @title = "Edit admin"
   end
@@ -34,7 +38,10 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
     if @admin.update_attributes(params[:admin])
       flash[:success] = "Profile updated."
+
       expire_fragment('challenges_cache')         # expire cache
+      expire_fragment('graphs_cache')         # expire cache
+
       redirect_to @admin
     else
       @title = "Edit admin"

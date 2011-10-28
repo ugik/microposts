@@ -1,6 +1,11 @@
 Console::Application.routes.draw do
 
-  resources :admins
+  resources :admins do
+     collection do
+        get 'graphs'
+        get 'view_graphs'
+     end
+  end
   resources :sessions, :only => [:new, :create, :destroy]
 
   match '/signup',  :to => 'admins#new'
