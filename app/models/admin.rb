@@ -1,5 +1,13 @@
 require 'digest'
 class Admin < ActiveRecord::Base
+  extend ActiveSupport::Memoizable
+
+  has_many :leagues, :primary_key => "league_id"
+  has_many :challenges, :primary_key => "league_id", :foreign_key => "league_id"
+  has_many :divisions, :primary_key => "league_id", :foreign_key => "league_id"
+  has_many :teams, :primary_key => "league_id", :foreign_key => "league_id"
+  has_many :posts, :as => :postable, :order => "updated_at DESC"
+
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :company_name, :league_id, :league_url
 
@@ -16,6 +24,13 @@ class Admin < ActiveRecord::Base
 
   before_save :encrypt_password
   cache = Hash.new
+
+  def num_users_registered
+    @users_registered = 0
+    self.divisions.each { |t| @users_registered += t.users.count }
+    @users_registered
+  end  
+  memoize :num_users_registered
 
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)

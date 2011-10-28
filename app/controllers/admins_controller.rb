@@ -6,6 +6,7 @@ class AdminsController < ApplicationController
   def show
     @admin = Admin.find(params[:id])
     @title = @admin.name
+
   end
 
   def edit
@@ -33,6 +34,7 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
     if @admin.update_attributes(params[:admin])
       flash[:success] = "Profile updated."
+      expire_fragment('challenges_cache')         # expire cache
       redirect_to @admin
     else
       @title = "Edit admin"

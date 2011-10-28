@@ -1,0 +1,41 @@
+<% cache('challenges_cache') do %>
+<tr>
+  <td class="challenge">
+    <span class="content"><%= challenge.name %></span>
+  </td>
+  <td><strong>Start: </strong><%= challenge.activation_date %>
+  <% unless challenge.eligible_members == nil %>
+     <strong> Eligible:</strong><%= number_with_delimiter(challenge.eligible_members, :delimiter => ',') %>
+  <% end %></td>
+  <td>
+  <% unless challenge.teams.empty? %>
+  <% @users_on_teams = 0
+     @top_teams = []
+     @top_teams = challenge.top_teams %>
+  <strong>Registered:</strong><%= number_with_delimiter(current_admin.num_users_registered, :delimiter => ',') %>
+  <strong> Teams:</strong><%= challenge.num_teams %> <small>(full:<%= challenge.full_teams %>)</small> </td></tr>
+
+  <tr><td><strong>Top Teams:</strong></td>
+
+  <% challenge.top_teams.take(5).each { |t| 		# top 5 teams %>
+  <td><%= Team.find_by_id(t[0].to_i).name %><small> (<strong>Points:</strong><%= number_with_delimiter(t[1], :delimiter => ',') %>)</small></td>
+  </tr><tr><td></td> <% }%>
+
+  <% end %>
+  
+</tr><tr></tr>
+<tr>
+	<td></td><td>
+	<%  @data_table = GoogleVisualr::DataTable.new
+    challenge.load_users_pie_table(challenge.id, @data_table) %>
+
+	<%  opts   = { :width => 400, :height => 240, :title => 'Users', :is3D => true }
+	@chart = GoogleVisualr::Interactive::PieChart.new(@data_table, opts)	%>
+
+	<div id='pie-chart'></div>
+	<%= render_chart @chart, 'pie-chart' %>		
+	</td>
+	<td>View more graphs</td>
+</tr>
+
+<% end %>

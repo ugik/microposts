@@ -9,5 +9,14 @@
       </br>
       <%= current_admin.name %>
     </span>
+
+	<% unless current_admin.challenges.empty? %>
+		<% @challenges = current_admin.challenges %>
+  		<b>Challenges</b>
+  		<table class="challenges" summary="league challenges">
+  		<%= render @challenges %>
+  		</table>
+	<% end %>
+
   </a>
 </div>
