@@ -20,5 +20,5 @@ The 'super admin' login is: admin@keas.com pw:foobar, it's associated with leagu
 From this admin you can update/delete/add admins in the local database, which are associated with the data
 in the Keas database via league, division, challenge, et al.
 
-Other admins currently setup (same pw): admin@pfizer.com, admin@bechtel.com
+Other admins currently setup (same pw): admin@pfizer.com, admin@bechtel.com, admin@rearden.com, admin@sgh.com
 
