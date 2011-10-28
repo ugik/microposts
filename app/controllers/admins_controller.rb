@@ -27,6 +27,9 @@ class AdminsController < ApplicationController
     if @admin.save
       sign_in @admin
       flash[:success] = "New admin created"
+      expire_fragment('challenges_cache')         # expire cache
+      expire_fragment('graphs_cache')         # expire cache
+
       redirect_to @admin
     else
       @title = "Create Admin"
